@@ -15,11 +15,18 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
         System.out.println("TESTING PASSED");
 
 //        postgres://omddmziosdszkb:9b7722304114bad25caa1d6d42412d92e63690aa03d688a5c4f39dc1461afb82@ec2-54-237-135-248.compute-1.amazonaws.com:5432/dql38s6fab9c0
-
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
 //        String connectionString = "jdbc:postgresql://ec2-54-237-135-248.compute-1.amazonaws.com:5432/dql38s6fab9c0";
