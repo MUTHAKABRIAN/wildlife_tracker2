@@ -23,6 +23,7 @@ public abstract class Wildlife {
         this.animalName=animalName;
     }
     public void setType(String type){
+
         this.type=type;
     }
 }
