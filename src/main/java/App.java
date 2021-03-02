@@ -15,25 +15,25 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
-    static int getHerokuAssignedPort() {
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        if (processBuilder.environment().get("PORT") != null) {
-            return Integer.parseInt(processBuilder.environment().get("PORT"));
-        }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
-    }
+
+//        static int getHerokuAssignedPort() {
+//            ProcessBuilder processBuilder = new ProcessBuilder();
+//            if (processBuilder.environment().get("PORT") != null) {
+//                return Integer.parseInt(processBuilder.environment().get("PORT"));
+//            }
+//            return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+//        }
     public static void main(String[] args) {
         System.out.println("TESTING PASSED");
 
-//        postgres://omddmziosdszkb:9b7722304114bad25caa1d6d42412d92e63690aa03d688a5c4f39dc1461afb82@ec2-54-237-135-248.compute-1.amazonaws.com:5432/dql38s6fab9c0
-        port(getHerokuAssignedPort());
+//        postgres://nnafcxsyigvkzu:1e72901a534b7d0fdee2c757d29603a57944323ed42a0531a074ad7f9cbee264@ec2-3-232-163-23.compute-1.amazonaws.com:5432/d3ltq59lv9bc7p
+//        port(getHerokuAssignedPort());
         staticFileLocation("/public");
        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-//        String connectionString = "jdbc:postgresql://ec2-54-237-135-248.compute-1.amazonaws.com:5432/dql38s6fab9c0";
-
+//        String connectionString = "jdbc:postgresql://ec2-3-232-163-23.compute-1.amazonaws.com:5432/d3ltq59lv9bc7p";
         Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
 
-//        Sql2o sql2o = new Sql2o(connectionString, "omddmziosdszkb", "9b7722304114bad25caa1d6d42412d92e63690aa03d688a5c4f39dc1461afb82");
+//      Sql2o sql2o = new Sql2o(connectionString, "nnafcxsyigvkzu", "1e72901a534b7d0fdee2c757d29603a57944323ed42a0531a074ad7f9cbee264");
         sql2oAnimalDAO sql2oAnimalDAO = new sql2oAnimalDAO (sql2o);
         SightingsDAO sightingsDAO = new SightingsDAO(sql2o);
         EndangeredDAO endangeredDAO = new EndangeredDAO(sql2o);
