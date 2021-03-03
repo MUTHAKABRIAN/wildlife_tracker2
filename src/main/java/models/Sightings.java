@@ -24,6 +24,7 @@ public class Sightings {
     }
 
     public String getRangerName() {
+
         return rangerName;
     }
 
@@ -32,6 +33,7 @@ public class Sightings {
     }
 
     public int getWildlifeId() {
+
         return wildlifeId;
     }
 

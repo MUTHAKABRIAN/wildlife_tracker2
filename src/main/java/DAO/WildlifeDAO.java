@@ -29,6 +29,20 @@ public class WildlifeDAO implements sql2oWildlife {
 
         }
     }
+//
+//    @Override
+//    public void addTypeOfAnimal(String type) {
+//        try (Connection con = sql2o.open()) {
+//            String sql = "INSERT INTO animals(animalName, type) VALUES(:animalName,:type)";
+//            Wildlife.id = (int) con.createQuery(sql, true)
+//                    .bind(wildlife)
+//                    .throwOnMappingFailure(false)
+//                    .executeUpdate()
+//                    .getKey();
+//
+//        }
+
+
 
 
 

@@ -21,7 +21,6 @@ animals available in the wild.
 Click on the following link:
 https://github.com/MUTHAKABRIAN/wildlife_tracker2.git
 
-## CONTACT ME 
   If you have any Questions please reach out to me via `muthakabrian@gmail.com` 
 
 ## License and copyright  
