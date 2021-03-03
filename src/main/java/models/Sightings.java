@@ -7,7 +7,7 @@ public class Sightings {
     private String rangerName;
     private int wildlifeId;
     private int id;
-    private Timestamp time;
+//    private Timestamp time;
 
     public Sightings(String location, String rangerName, int wildlifeId ) {
         this.location = location;
@@ -38,6 +38,7 @@ public class Sightings {
     }
 
     public void setWildlifeId(int wildlifeId) {
+
         this.wildlifeId = wildlifeId;
     }
 
@@ -49,12 +50,13 @@ public class Sightings {
         this.id = id;
     }
 
-    public Timestamp getTime() {
-        return time;
-    }
+//    public Timestamp getTime() {
+//        return time;
+//    }
 
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
+//    public void setTime(Timestamp time) {
+//
+//        this.time = time;
+//    }
 }
 
