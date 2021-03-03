@@ -1,5 +1,4 @@
 import DAO.EndangeredDAO;
-import DAO.SightingsDAO;
 import DAO.WildlifeDAO;
 import DAO.sql2oAnimalDAO;
 import models.Endangered;
@@ -29,13 +28,13 @@ public class App {
 //        postgres://rlfasaevchjoim:fd5407732c89601485a119b693ab3cb9dd7776031d8cee2fdce30df5061f1ae7@ec2-54-242-43-231.compute-1.amazonaws.com:5432/d1a74jqbn5idsj
        port(getHerokuAssignedPort());
         staticFileLocation("/public");
-       String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-//        String connectionString = "jdbc:postgresql://ec2-54-242-43-231.compute-1.amazonaws.com:5432/d1a74jqbn5idsj";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
+//       String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+        String connectionString = "jdbc:postgresql://ec2-34-198-31-223.compute-1.amazonaws.com:5432/d1pg3fm6vnse8l";
+//        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
 
-//      Sql2o sql2o = new Sql2o(connectionString, "rlfasaevchjoim", "fd5407732c89601485a119b693ab3cb9dd7776031d8cee2fdce30df5061f1ae7");
+      Sql2o sql2o = new Sql2o(connectionString, "xosgwzkzwjyqct", "a0fbbed62a424ededccff1329253efc108f22d07c59d72d4140b13f7e9976d48");
         sql2oAnimalDAO sql2oAnimalDAO = new sql2oAnimalDAO (sql2o);
-        SightingsDAO sightingsDAO = new SightingsDAO(sql2o);
+//        SightingsDAO sightingsDAO = new SightingsDAO(sql2o);
         EndangeredDAO endangeredDAO = new EndangeredDAO(sql2o);
         WildlifeDAO wildlifeDAO = new WildlifeDAO(sql2o);
 
@@ -73,7 +72,7 @@ public class App {
                 endangeredDAO.saveAgeOfAnimal(age);
             }
             Sightings sightings = new Sightings(location, ranger, animalId);
-            sightingsDAO.addSightings(sightings);
+//            sightingsDAO.addSightings(sightings);
             response.redirect("/all-animals");
             return null;
         }, new HandlebarsTemplateEngine());
@@ -86,7 +85,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         get("/sightings", (request, response) -> {
-            model.put("sight", sightingsDAO.getAllSightings());
+//            model.put("sight", sightingsDAO.getAllSightings());
             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
     }

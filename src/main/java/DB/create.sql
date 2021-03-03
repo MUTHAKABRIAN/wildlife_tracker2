@@ -12,9 +12,4 @@ health VARCHAR,
 age VARCHAR
 );
 
-CREATE  TABLE IF NOT EXISTS sightings (
-id SERIAL PRIMARY KEY,
-location VARCHAR,
-rangerName VARCHAR,
-wildlifeId INTEGER
-);
+
